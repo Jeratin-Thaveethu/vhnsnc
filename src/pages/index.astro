@@ -8,7 +8,7 @@ import CTAButton from "../components/CTAButton.astro";
 import FacilityCard from "../components/FacilityCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
-import { college, stats, departmentGroups, events, facilities, news, testimonials } from "../data/college";
+import { college, stats, departmentGroups, events, facilities, news, testimonials, campusSlides } from "../data/college";
 
 const featuredGroups = departmentGroups.slice(0, 3);
 const featuredFacilities = facilities.slice(0, 4);
@@ -39,6 +39,11 @@ const latestNews = news.slice(0, 3);
       <div class="reveal-up mt-10 flex flex-wrap items-center justify-center gap-4">
         <CTAButton href="/admissions">Apply Now</CTAButton>
         <CTAButton href="/academics" variant="outline">Explore Programs</CTAButton>
+      </div>
+      <div class="reveal-up mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-3 md:grid-cols-4">
+        {campusSlides.map((slide) => (
+          <img src={slide.src} alt={slide.alt} class="aspect-[4/3] rounded-lg border border-gold/20 object-cover shadow-lg shadow-ink/20" loading="lazy" />
+        ))}
       </div>
     </div>
   </section>

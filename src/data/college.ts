@@ -1,6 +1,6 @@
-// Demo/sample content for the sales-pitch redesign. Real facts (name, address, email,
-// department list) are public info from vhnsnc.edu.in; everything else (stats, staff,
-// testimonials, imagery) is placeholder copy clearly meant to be swapped for the real thing.
+// Site content and curated public assets from vhnsnc.edu.in.
+
+const officialImage = (path: string) => `${import.meta.env.BASE_URL}/images/official/${path}`;
 
 export const college = {
   shortName: "VHNSNC",
@@ -99,21 +99,21 @@ export const events = [
     dept: "Computer Science Department", 
     date: "16 Sep 2026",
     description: "The Department of Computer Science organizes the RubyHack'26 Inter-College Hackathon",
-    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787826888.jpeg"
+    image: officialImage("Invitation/2025-2026/1787826888.jpeg")
   },
   { 
     title: "Effective Documentation using LATEX", 
     dept: "Mathematics Association", 
     date: "31 Aug 2026",
     description: "UG Mathematics Association organizes hands-on training on Preparing Effective Documentation using LATEX",
-    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787905122.jpeg"
+    image: officialImage("Invitation/2025-2026/1787905122.jpeg")
   },
   { 
     title: "Guest Lecture: Healthy Adolescents", 
     dept: "Information Technology Department", 
     date: "31 Aug 2026",
     description: "The Department of Information Technology organizes a Guest Lecture on Healthy Adolescents",
-    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787907244.jpg"
+    image: officialImage("Invitation/2025-2026/1787907244.jpg")
   },
   { 
     title: "Mass Tree Plantation / Library Day", 
@@ -129,29 +129,95 @@ export const events = [
 
 export const officialGalleryImages = [
   {
-    src: "https://www.vhnsnc.edu.in/img/core-img/head.webp",
+    src: officialImage("core-img/head.webp"),
     alt: "VHNSNC official college header",
     caption: "Virudhunagar Hindu Nadars' Senthikumara Nadar College",
     wide: true,
   },
   {
-    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787826888.jpeg",
+    src: officialImage("Invitation/2025-2026/1787826888.jpeg"),
     alt: "RubyHack 2026 inter-college hackathon invitation",
     caption: "RubyHack'26 - Department of Computer Science",
     wide: false,
   },
   {
-    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787905122.jpeg",
+    src: officialImage("Invitation/2025-2026/1787905122.jpeg"),
     alt: "Mathematics Association LaTeX documentation workshop invitation",
     caption: "Effective Documentation using LaTeX",
     wide: false,
   },
   {
-    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787907244.jpg",
+    src: officialImage("Invitation/2025-2026/1787907244.jpg"),
     alt: "Information Technology guest lecture on healthy adolescents invitation",
     caption: "Guest Lecture: Healthy Adolescents",
     wide: false,
   },
+  {
+    src: officialImage("slideshow/2026.webp"),
+    alt: "VHNSNC campus slideshow image",
+    caption: "Campus highlight",
+    wide: false,
+  },
+  {
+    src: officialImage("Sports/2012-2013/001.jpg"),
+    alt: "VHNSNC sports activity",
+    caption: "Sports activity",
+    wide: false,
+  },
+  {
+    src: officialImage("Nss/002.JPG"),
+    alt: "VHNSNC NSS activity",
+    caption: "NSS activity",
+    wide: false,
+  },
+  {
+    src: officialImage("Ncc/ncc2.jpg"),
+    alt: "VHNSNC NCC activity",
+    caption: "NCC activity",
+    wide: false,
+  },
+];
+
+export const campusSlides = [
+  { src: officialImage("slideshow/2026.webp"), alt: "VHNSNC campus highlight" },
+  { src: officialImage("slideshow/an1.webp"), alt: "VHNSNC announcement highlight" },
+  { src: officialImage("slideshow/gr1.webp"), alt: "VHNSNC graduation highlight" },
+  { src: officialImage("slideshow/sa1.webp"), alt: "VHNSNC student achievement highlight" },
+];
+
+export const principalPortrait = {
+  src: officialImage("principal/principal_ps.jpg"),
+  alt: "Principal of VHNSNC",
+};
+
+export const managementImages = [
+  { src: officialImage("members/Principal.JPG"), alt: "Principal member photograph", name: "Principal" },
+  { src: officialImage("members/2026-28/president.jpg"), alt: "President member photograph", name: "President" },
+  { src: officialImage("members/2026-28/secretary.jpg"), alt: "Secretary member photograph", name: "Secretary" },
+  { src: officialImage("members/2026-28/treasurer.jpg"), alt: "Treasurer member photograph", name: "Treasurer" },
+];
+
+export const departmentLogos = [
+  { src: officialImage("deptlogo/MAT.webp"), alt: "Mathematics department logo", title: "Mathematics" },
+  { src: officialImage("deptlogo/PHY.webp"), alt: "Physics department logo", title: "Physics" },
+  { src: officialImage("deptlogo/CHE.webp"), alt: "Chemistry department logo", title: "Chemistry" },
+  { src: officialImage("deptlogo/CSE.webp"), alt: "Computer Science department logo", title: "Computer Science" },
+  { src: officialImage("deptlogo/IT.webp"), alt: "Information Technology department logo", title: "Information Technology" },
+  { src: officialImage("deptlogo/COM.webp"), alt: "Commerce department logo", title: "Commerce" },
+  { src: officialImage("deptlogo/ENG.webp"), alt: "English department logo", title: "English" },
+  { src: officialImage("deptlogo/HIS.webp"), alt: "History department logo", title: "History" },
+];
+
+export const studentActivityImages = [
+  { src: officialImage("Sports/2012-2013/001.jpg"), alt: "Sports activity at VHNSNC", title: "Sports" },
+  { src: officialImage("Nss/002.JPG"), alt: "NSS activity at VHNSNC", title: "NSS" },
+  { src: officialImage("Ncc/ncc2.jpg"), alt: "NCC activity at VHNSNC", title: "NCC" },
+];
+
+export const digitechImages = [
+  { src: officialImage("digitech/digitech.png"), alt: "VHNSNC Digitech" },
+  { src: officialImage("digitech/architecture.png"), alt: "Digitech architecture" },
+  { src: officialImage("digitech/objectives.png"), alt: "Digitech objectives" },
 ];
 
 export const faculty = [

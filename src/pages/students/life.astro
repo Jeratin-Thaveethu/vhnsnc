@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { studentActivityImages } from "../../data/college";
 ---
 
 <BaseLayout title="Student Life & Activities - VHNSNC">
@@ -15,7 +16,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
     <section class="px-6 max-w-4xl mx-auto space-y-8">
       <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8 text-center">
-        <div class="text-6xl mb-4">🎓</div>
+        <div class="mb-6 grid gap-4 md:grid-cols-3">
+          {studentActivityImages.map((image) => (
+            <figure class="overflow-hidden rounded-lg border border-parchment/15 bg-ink-light">
+              <img src={image.src} alt={image.alt} class="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <figcaption class="px-3 py-2 text-sm text-parchment/75">{image.title}</figcaption>
+            </figure>
+          ))}
+        </div>
         <h2 class="font-display text-2xl font-semibold text-parchment mb-4">Enriching Campus Experience</h2>
         <p class="text-parchment/80">
           Our college provides numerous opportunities for personal growth, skill development, and social engagement.

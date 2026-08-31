@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { managementImages } from "../../data/college";
 ---
 
 <BaseLayout title="Management & Administration - VHNSNC">
@@ -16,6 +17,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <section class="px-6 max-w-4xl mx-auto space-y-8">
       <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
         <h2 class="font-display text-2xl font-semibold text-parchment mb-6">Governing Body</h2>
+        <div class="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {managementImages.map((member) => (
+            <figure class="overflow-hidden rounded-lg border border-parchment/15 bg-ink-light text-center">
+              <img src={member.src} alt={member.alt} class="aspect-[4/3] w-full object-cover" loading="lazy" />
+              <figcaption class="px-3 py-2 text-sm text-parchment/75">{member.name}</figcaption>
+            </figure>
+          ))}
+        </div>
         <div class="space-y-4">
           <div class="rounded-lg border border-parchment/20 p-4">
             <h3 class="font-semibold text-parchment">Secretary</h3>

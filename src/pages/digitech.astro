@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { digitechImages } from "../data/college";
 ---
 
 <BaseLayout title="Digitech - VHNSNC">
@@ -17,6 +18,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <!-- Services Section -->
     <section class="px-6 max-w-4xl mx-auto space-y-8">
       <h2 class="text-center font-display text-3xl font-bold text-gold">Our Services</h2>
+      <div class="grid gap-4 md:grid-cols-3">
+        {digitechImages.map((image) => (
+          <img src={image.src} alt={image.alt} class="aspect-video rounded-lg border border-gold/20 bg-white object-contain p-3" loading="lazy" />
+        ))}
+      </div>
       <div class="grid gap-6 md:grid-cols-2">
         <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
           <div class="text-4xl mb-3">💻</div>
