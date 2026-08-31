@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DepartmentCard from "../components/DepartmentCard.astro";
+import { departmentGroups } from "../data/college";
+---
+
+<BaseLayout title="Academics" description="25 departments across Arts, Science, Commerce and IT at VHNSNC.">
+  <section class="px-6 pb-12 pt-32 text-center lg:px-10">
+    <p class="reveal-fade text-sm font-semibold uppercase tracking-[0.3em] text-teal">Academics</p>
+    <h1 class="reveal-up mt-4 font-display text-4xl font-bold sm:text-5xl">
+      <span class="text-gradient-gold">25 Departments</span>, One Community
+    </h1>
+    <p class="reveal-up mx-auto mt-6 max-w-2xl text-parchment/75">
+      From Tamil literature to Computer Science, explore programs spanning Arts, Science, Commerce, Management and IT.
+    </p>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-10">
+    <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {departmentGroups.map((g) => <DepartmentCard group={g.group} departments={g.departments} />)}
+    </div>
+  </section>
+</BaseLayout>

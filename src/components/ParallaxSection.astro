@@ -1,0 +1,86 @@
+---
+interface Props {
+  backgroundImage?: string;
+  backgroundPosition?: string;
+  children?: any;
+  className?: string;
+  overlay?: boolean;
+}
+
+const {
+  backgroundImage = "linear-gradient(135deg, #fdf0d9 0%, #fffaf2 100%)",
+  backgroundPosition = "center",
+  className = "",
+  overlay = true,
+} = Astro.props;
+---
+
+<div class={`parallax-section ${className}`} data-parallax-bg={backgroundImage}>
+  {overlay && <div class="parallax-overlay"></div>}
+  <div class="parallax-content">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ backgroundImage, backgroundPosition }}>
+  .parallax-section {
+    position: relative;
+    background-attachment: fixed;
+    background-position: var(--backgroundPosition);
+    background-size: cover;
+    background-image: var(--backgroundImage);
+    overflow: hidden;
+  }
+
+  .parallax-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-ink/30 via-transparent to-ink/20;
+    pointer-events: none;
+  }
+
+  .parallax-content {
+    @apply relative z-10;
+  }
+
+  /* Parallax animation on scroll */
+  @supports (background-attachment: fixed) {
+    .parallax-section {
+      background-attachment: fixed;
+    }
+  }
+
+  /* Fallback for browsers without parallax support */
+  @supports not (background-attachment: fixed) {
+    .parallax-section {
+      background-attachment: scroll;
+    }
+  }
+</style>
+
+<script>
+  // Fallback parallax effect for browsers that don't support background-attachment: fixed
+  const parallaxElements = document.querySelectorAll("[data-parallax-bg]");
+
+  if (parallaxElements.length > 0) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        parallaxElements.forEach((el: Element) => {
+          const element = el as HTMLElement;
+          const scrollPosition = window.scrollY;
+          const elementOffset =
+            element.getBoundingClientRect().top + window.scrollY;
+          const parallaxDistance = scrollPosition - elementOffset;
+
+          // Only apply parallax when element is in viewport
+          if (
+            window.scrollY < elementOffset + element.offsetHeight &&
+            window.scrollY + window.innerHeight > elementOffset
+          ) {
+            element.style.backgroundPosition = `center ${parallaxDistance * 0.5}px`;
+          }
+        });
+      },
+      { passive: true }
+    );
+  }
+</script>

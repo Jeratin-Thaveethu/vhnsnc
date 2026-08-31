@@ -1,0 +1,19 @@
+---
+interface Props {
+  group: string;
+  departments: string[];
+}
+const { group, departments } = Astro.props as Props;
+---
+
+<div class="reveal-up group rounded-2xl border border-parchment/10 bg-ink-light p-7 transition-all duration-300 hover:-translate-y-2 hover:border-teal/50 hover:shadow-xl hover:shadow-teal/10">
+  <h3 class="font-display text-xl font-semibold text-gold">{group}</h3>
+  <ul class="mt-4 space-y-2">
+    {departments.map((dept) => (
+      <li class="flex items-center gap-2 text-sm text-parchment/75">
+        <span class="h-1.5 w-1.5 rounded-full bg-teal transition-transform group-hover:scale-125"></span>
+        {dept}
+      </li>
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  href: string;
+  variant?: "solid" | "outline";
+}
+const { href, variant = "solid" } = Astro.props as Props;
+const base =
+  "magnetic-btn relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold transition-transform will-change-transform";
+const styles =
+  variant === "solid"
+    ? "bg-gold text-ink shadow-lg shadow-gold/20 hover:shadow-gold/40"
+    : "border border-gold/60 text-gold hover:bg-gold/10";
+---
+
+<a href={href} class:list={[base, styles]}>
+  <slot />
+</a>
+
+<script>
+  // Magnetic hover: button drifts slightly toward the cursor, springs back on leave.
+  document.querySelectorAll<HTMLElement>(".magnetic-btn").forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+    btn.addEventListener("pointerleave", () => {
+      btn.style.transform = "translate(0, 0)";
+    });
+  });
+</script>

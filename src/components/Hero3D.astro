@@ -1,0 +1,129 @@
+---
+// 3D WebGL hero backdrop (Three.js) with a static gradient fallback for reduced-motion / low-power devices.
+---
+
+<div class="absolute inset-0 -z-10 overflow-hidden">
+  <canvas id="hero3d-canvas" class="h-full w-full" aria-hidden="true"></canvas>
+  <div
+    id="hero3d-fallback"
+    class="hidden absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(15,138,124,0.18),transparent_55%),radial-gradient(circle_at_75%_75%,rgba(200,137,42,0.18),transparent_55%)]"
+  >
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink"></div>
+</div>
+
+<script>
+  import { prefersReducedMotion } from "../lib/motion";
+
+  async function bootHero3D() {
+    try {
+      await runHero3D();
+    } catch (err) {
+      console.error("hero3d failed", err);
+    }
+  }
+
+  async function runHero3D() {
+    const canvas = document.getElementById("hero3d-canvas") as HTMLCanvasElement | null;
+    const fallback = document.getElementById("hero3d-fallback");
+    if (!canvas) return;
+
+    const reduced = prefersReducedMotion();
+    const lowPower = navigator.hardwareConcurrency !== undefined && navigator.hardwareConcurrency <= 4;
+
+    if (reduced || lowPower) {
+      canvas.remove();
+      fallback?.classList.remove("hidden");
+      return;
+    }
+
+    const THREE = await import("three");
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 9;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Particle field standing in for a campus "starfield" of knowledge/opportunity.
+    const particleCount = 700;
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 22;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 22;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 16;
+    }
+    const particleGeometry = new THREE.BufferGeometry();
+    particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0xc8892a,
+      size: 0.16,
+      transparent: true,
+      opacity: 0.75,
+      sizeAttenuation: true,
+    });
+    const particles = new THREE.Points(particleGeometry, particleMaterial);
+    scene.add(particles);
+
+    // Icosahedron "emblem" as the centerpiece 3D object, plus a smaller counter-rotating shell for depth.
+    const emblemGeometry = new THREE.IcosahedronGeometry(3.6, 1);
+    const emblemMaterial = new THREE.MeshBasicMaterial({
+      color: 0x0f8a7c,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.6,
+    });
+    const emblem = new THREE.Mesh(emblemGeometry, emblemMaterial);
+    scene.add(emblem);
+
+    const innerGeometry = new THREE.IcosahedronGeometry(2.1, 0);
+    const innerMaterial = new THREE.MeshBasicMaterial({
+      color: 0xc8892a,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.5,
+    });
+    const innerShell = new THREE.Mesh(innerGeometry, innerMaterial);
+    scene.add(innerShell);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    window.addEventListener("pointermove", (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    let frameId: number;
+    const clock = new THREE.Clock();
+
+    function animate() {
+      frameId = requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      emblem.rotation.x = t * 0.08 + mouseY * 0.2;
+      emblem.rotation.y = t * 0.12 + mouseX * 0.2;
+      innerShell.rotation.x = -t * 0.15 + mouseY * 0.15;
+      innerShell.rotation.y = -t * 0.1 + mouseX * 0.15;
+      particles.rotation.y = t * 0.02;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    function onResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener("resize", onResize);
+
+    document.addEventListener("astro:before-swap", () => {
+      cancelAnimationFrame(frameId);
+      renderer.dispose();
+    }, { once: true });
+  }
+
+  bootHero3D();
+</script>

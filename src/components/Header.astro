@@ -1,0 +1,77 @@
+---
+import { college, navLinks } from "../data/college";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 z-50 w-full transition-colors duration-300" id="site-header">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+    <a href="/" class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-full border border-gold/60 font-display text-lg font-bold text-gold">
+        V
+      </span>
+      <span class="hidden font-display text-lg font-semibold tracking-wide sm:inline">{college.shortName}</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 lg:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "relative text-sm font-medium tracking-wide text-parchment/80 transition-colors hover:text-gold",
+            { "text-gold": currentPath === link.href },
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/admissions"
+      class="hidden rounded-full bg-gold px-5 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/30 lg:inline-block"
+    >
+      Apply Now
+    </a>
+
+    <button id="menu-toggle" class="flex flex-col gap-1.5 lg:hidden" aria-label="Toggle menu" aria-expanded="false">
+      <span class="h-0.5 w-6 bg-parchment transition-transform"></span>
+      <span class="h-0.5 w-6 bg-parchment transition-opacity"></span>
+      <span class="h-0.5 w-6 bg-parchment transition-transform"></span>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden flex-col gap-1 bg-ink-light/95 px-6 pb-6 backdrop-blur lg:hidden">
+    {navLinks.map((link) => (
+      <a href={link.href} class="rounded-lg px-3 py-3 text-parchment/90 hover:bg-parchment/5 hover:text-gold">
+        {link.label}
+      </a>
+    ))}
+    <a href="/admissions" class="mt-2 rounded-full bg-gold px-4 py-2 text-center text-sm font-semibold text-ink">
+      Apply Now
+    </a>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  const onScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 24) {
+      header.classList.add("bg-ink/80", "backdrop-blur", "shadow-md", "shadow-parchment/10");
+    } else {
+      header.classList.remove("bg-ink/80", "backdrop-blur", "shadow-md", "shadow-parchment/10");
+    }
+  };
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("flex");
+    menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(!!isOpen));
+  });
+</script>

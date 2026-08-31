@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FacilityCard from "../components/FacilityCard.astro";
+import CTAButton from "../components/CTAButton.astro";
+import { facilities } from "../data/college";
+---
+
+<BaseLayout title="Campus Facilities">
+  <!-- Hero Section -->
+  <section class="relative flex min-h-screen items-center px-6 pt-24 lg:px-10">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-teal/10 rounded-full blur-3xl"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
+      ></div>
+    </div>
+    <div class="relative z-10 mx-auto max-w-4xl text-center">
+      <p class="reveal-fade mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-teal">
+        VHNSNC Campus
+      </p>
+      <h1 class="reveal-up font-display text-4xl font-bold leading-tight sm:text-6xl">
+        <span class="text-gradient-gold">World-Class Facilities</span>
+      </h1>
+      <p class="reveal-up mx-auto mt-6 max-w-2xl text-base text-parchment/75 sm:text-lg">
+        Modern infrastructure designed to foster learning, research, and personal growth in a holistic educational environment.
+      </p>
+    </div>
+  </section>
+
+  <!-- All Facilities Grid -->
+  <section class="px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-up mb-16 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Our Campus Infrastructure</h2>
+        <p class="mt-3 text-parchment/65">Comprehensive facilities to support academic excellence and student development.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {facilities.map((f, idx) => (
+          <div class="reveal-up" style={`animation-delay: ${idx * 0.1}s`}>
+            <FacilityCard name={f.name} icon={f.icon} description={f.description} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Facilities Descriptions -->
+  <section class="bg-ink-light/60 px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal-up mb-16 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Feature Highlights</h2>
+      </div>
+      <div class="space-y-12">
+        <!-- Smart Classrooms -->
+        <div class="reveal-up grid gap-8 md:grid-cols-2 items-center">
+          <div class="order-2 md:order-1">
+            <h3 class="font-display text-2xl font-bold text-parchment mb-4">Smart Classrooms</h3>
+            <p class="text-parchment/75 mb-4">
+              Equipped with interactive whiteboards, projectors, and multimedia systems to enhance the learning experience. Faculty leverage modern teaching aids and digital content to make complex concepts engaging and accessible.
+            </p>
+            <ul class="space-y-2 text-parchment/70">
+              <li>✓ Interactive whiteboards and smart boards</li>
+              <li>✓ High-speed internet connectivity</li>
+              <li>✓ Video conferencing capabilities</li>
+              <li>✓ Digital content management systems</li>
+            </ul>
+          </div>
+          <div class="order-1 md:order-2 h-48 bg-gradient-to-br from-gold/20 to-teal/20 rounded-2xl flex items-center justify-center">
+            <span class="text-6xl">🎓</span>
+          </div>
+        </div>
+
+        <!-- Library & E-Resources -->
+        <div class="reveal-up grid gap-8 md:grid-cols-2 items-center">
+          <div class="h-48 bg-gradient-to-br from-teal/20 to-gold/20 rounded-2xl flex items-center justify-center">
+            <span class="text-6xl">📚</span>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-parchment mb-4">Library & E-Resources</h3>
+            <p class="text-parchment/75 mb-4">
+              An extensive collection of over 50,000 books, journals, and digital resources. Students have access to international academic databases and online journals for research purposes.
+            </p>
+            <ul class="space-y-2 text-parchment/70">
+              <li>✓ 50,000+ physical books</li>
+              <li>✓ Access to online journals and databases</li>
+              <li>✓ E-book collection</li>
+              <li>✓ Quiet study zones and reading areas</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Computer Labs -->
+        <div class="reveal-up grid gap-8 md:grid-cols-2 items-center">
+          <div class="order-2 md:order-1">
+            <h3 class="font-display text-2xl font-bold text-parchment mb-4">Computer Labs</h3>
+            <p class="text-parchment/75 mb-4">
+              Multiple labs with state-of-the-art computers and high-speed internet. Students get hands-on training in programming, software development, and various IT skills.
+            </p>
+            <ul class="space-y-2 text-parchment/70">
+              <li>✓ 200+ high-performance computers</li>
+              <li>✓ Latest software and development tools</li>
+              <li>✓ 24/7 lab access for students</li>
+              <li>✓ Expert technical support</li>
+            </ul>
+          </div>
+          <div class="order-1 md:order-2 h-48 bg-gradient-to-br from-gold/20 to-teal/20 rounded-2xl flex items-center justify-center">
+            <span class="text-6xl">💻</span>
+          </div>
+        </div>
+
+        <!-- Scientific Laboratories -->
+        <div class="reveal-up grid gap-8 md:grid-cols-2 items-center">
+          <div class="h-48 bg-gradient-to-br from-teal/20 to-gold/20 rounded-2xl flex items-center justify-center">
+            <span class="text-6xl">🔬</span>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl font-bold text-parchment mb-4">Scientific Laboratories</h3>
+            <p class="text-parchment/75 mb-4">
+              Well-equipped labs for Physics, Chemistry, Biology, and specialized research. Students conduct experiments and practical work under expert supervision.
+            </p>
+            <ul class="space-y-2 text-parchment/70">
+              <li>✓ Modern lab equipment and instruments</li>
+              <li>✓ Dedicated research spaces</li>
+              <li>✓ Safety protocols and trained staff</li>
+              <li>✓ Regular maintenance and calibration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Amenities -->
+  <section class="px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal-up mb-16 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Student Life Amenities</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">🏀 Sports Complex</h3>
+          <p class="text-parchment/70">
+            Comprehensive sports facilities including basketball courts, volleyball courts, badminton courts, and cricket ground. Regular tournaments and training sessions.
+          </p>
+        </div>
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">🏠 Hostel Accommodation</h3>
+          <p class="text-parchment/70">
+            Separate hostels for boys and girls with modern amenities. Safe, secure, and comfortable living spaces close to campus with nutritious meal services.
+          </p>
+        </div>
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">🍽️ Cafeteria</h3>
+          <p class="text-parchment/70">
+            Multi-cuisine cafeteria serving nutritious meals with options for dietary preferences. Hygienic preparation and quality ingredients prioritized.
+          </p>
+        </div>
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">🎭 Auditorium</h3>
+          <p class="text-parchment/70">
+            1000+ seating capacity auditorium for seminars, conferences, cultural programs, and guest lectures. State-of-the-art audio-visual setup.
+          </p>
+        </div>
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">🚗 Transportation</h3>
+          <p class="text-parchment/70">
+            College buses connecting various parts of the city for student convenience. Safe and reliable transportation services available.
+          </p>
+        </div>
+        <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/40 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+          <h3 class="font-display text-xl font-bold text-parchment mb-3">💊 Medical Center</h3>
+          <p class="text-parchment/70">
+            On-campus health center with qualified medical staff and first-aid facilities. Regular health camps and medical counseling for student welfare.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-ink-light/60 px-6 py-24 text-center lg:px-10">
+    <div class="reveal-up mx-auto max-w-3xl rounded-3xl border border-gold/30 bg-gradient-to-br from-ink to-ink-light p-12">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">Ready to experience our campus?</h2>
+      <p class="mt-4 text-parchment/70">Visit us for a campus tour or apply online to join our community.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <CTAButton href="/admissions">Apply Now</CTAButton>
+        <CTAButton href="/contact" variant="outline">Schedule Tour</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

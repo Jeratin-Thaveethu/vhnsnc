@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FacultyCard from "../components/FacultyCard.astro";
+import { faculty } from "../data/college";
+---
+
+<BaseLayout title="Faculty" description="Meet a sample of VHNSNC's faculty (demo data).">
+  <section class="px-6 pb-12 pt-32 text-center lg:px-10">
+    <p class="reveal-fade text-sm font-semibold uppercase tracking-[0.3em] text-teal">Our People</p>
+    <h1 class="reveal-up mt-4 font-display text-4xl font-bold sm:text-5xl">
+      Meet the <span class="text-gradient-gold">Faculty</span>
+    </h1>
+    <p class="reveal-up mx-auto mt-6 max-w-2xl text-parchment/75">
+      A sample of the educators shaping students across departments (demo profiles).
+    </p>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-10">
+    <div class="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {faculty.map((f) => <FacultyCard name={f.name} role={f.role} dept={f.dept} />)}
+    </div>
+  </section>
+</BaseLayout>

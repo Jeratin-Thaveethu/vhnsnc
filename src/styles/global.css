@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Manrope", sans-serif;
+
+  --color-ink: #fffaf2;
+  --color-ink-light: #fdf0d9;
+  --color-parchment: #16233d;
+  --color-gold: #c8892a;
+  --color-gold-light: #f3c568;
+  --color-teal: #0f8a7c;
+  --color-teal-dark: #0b6259;
+  --color-slate: #5b6472;
+}
+
+html {
+  background-color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink);
+  color: var(--color-parchment);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Scroll-reveal base state; GSAP flips these on scroll-into-view */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+.reveal-fade {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(120deg, var(--color-gold-light), var(--color-gold) 60%, var(--color-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

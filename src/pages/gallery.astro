@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const images = Array.from({ length: 9 }, (_, i) => ({
+  src: `https://picsum.photos/seed/vhnsnc-${i}/600/${i % 3 === 0 ? 800 : 450}`,
+  alt: `Campus life placeholder photo ${i + 1}`,
+}));
+---
+
+<BaseLayout title="Gallery" description="Campus life gallery (placeholder demo photos).">
+  <section class="px-6 pb-12 pt-32 text-center lg:px-10">
+    <p class="reveal-fade text-sm font-semibold uppercase tracking-[0.3em] text-teal">Gallery</p>
+    <h1 class="reveal-up mt-4 font-display text-4xl font-bold sm:text-5xl">
+      Life on <span class="text-gradient-gold">Campus</span>
+    </h1>
+    <p class="reveal-up mx-auto mt-4 max-w-xl text-sm text-parchment/60">
+      Placeholder demo photos — swap in real campus photography for the final delivery.
+    </p>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-10">
+    <div class="mx-auto columns-1 gap-4 [column-fill:_balance] sm:columns-2 lg:columns-3">
+      {images.map((img) => (
+        <div class="reveal-up mb-4 overflow-hidden rounded-2xl break-inside-avoid">
+          <img
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            class="w-full scale-100 object-cover transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

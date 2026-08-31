@@ -1,0 +1,100 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  text: string;
+}
+
+const { name, role, text } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <div class="quote-mark">"</div>
+  <p class="testimonial-text">{text}</p>
+  <div class="testimonial-author">
+    <div class="author-avatar"></div>
+    <div class="author-info">
+      <h4 class="author-name">{name}</h4>
+      <p class="author-role">{role}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    position: relative;
+    border-radius: 1rem;
+    border: 1px solid rgba(22, 35, 61, 0.15);
+    background: linear-gradient(to bottom right, rgba(253, 240, 217, 0.6), rgba(253, 240, 217, 0.3));
+    padding: 2rem;
+    transition: all 0.5s ease-out;
+    animation: testimonialSlide 0.6s ease-out forwards;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(200, 137, 42, 0.3);
+    box-shadow: 0 15px 40px rgba(200, 137, 42, 0.15);
+    transform: translateY(-0.25rem);
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(200, 137, 42, 0.2);
+    pointer-events: none;
+  }
+
+  .testimonial-text {
+    position: relative;
+    z-index: 10;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(22, 35, 61, 0.85);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, rgba(243, 197, 104, 0.4), rgba(15, 138, 124, 0.4));
+    flex-shrink: 0;
+  }
+
+  .author-info {
+    flex-grow: 1;
+  }
+
+  .author-name {
+    font-weight: 700;
+    color: var(--color-parchment);
+    font-size: 0.875rem;
+  }
+
+  .author-role {
+    font-size: 0.75rem;
+    color: rgba(22, 35, 61, 0.6);
+  }
+
+  /* Stagger animation */
+  @keyframes testimonialSlide {
+    from {
+      opacity: 0;
+      transform: translateX(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>

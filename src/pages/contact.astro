@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { college } from "../data/college";
+
+const mapQuery = encodeURIComponent(college.address);
+---
+
+<BaseLayout title="Contact" description="Get in touch with VHNSNC.">
+  <section class="px-6 pb-12 pt-32 text-center lg:px-10">
+    <p class="reveal-fade text-sm font-semibold uppercase tracking-[0.3em] text-teal">Contact</p>
+    <h1 class="reveal-up mt-4 font-display text-4xl font-bold sm:text-5xl">
+      Get In <span class="text-gradient-gold">Touch</span>
+    </h1>
+  </section>
+
+  <section class="grid gap-8 px-6 pb-24 lg:grid-cols-2 lg:px-10">
+    <div class="reveal-up rounded-2xl border border-parchment/10 bg-ink-light p-8">
+      <h2 class="font-display text-2xl font-semibold text-gold">Send a Message</h2>
+      <form class="mt-6 space-y-4" onsubmit="event.preventDefault(); alert('Demo form — no backend connected.');">
+        <div>
+          <label class="text-sm text-parchment/70" for="name">Name</label>
+          <input id="name" name="name" type="text" required class="mt-1 w-full rounded-lg border border-parchment/15 bg-ink px-4 py-2.5 text-parchment outline-none focus:border-teal" />
+        </div>
+        <div>
+          <label class="text-sm text-parchment/70" for="email">Email</label>
+          <input id="email" name="email" type="email" required class="mt-1 w-full rounded-lg border border-parchment/15 bg-ink px-4 py-2.5 text-parchment outline-none focus:border-teal" />
+        </div>
+        <div>
+          <label class="text-sm text-parchment/70" for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required class="mt-1 w-full rounded-lg border border-parchment/15 bg-ink px-4 py-2.5 text-parchment outline-none focus:border-teal"></textarea>
+        </div>
+        <button type="submit" class="w-full rounded-full bg-gold px-6 py-3 font-semibold text-ink transition-transform hover:-translate-y-0.5">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <div class="reveal-up space-y-6">
+      <div class="rounded-2xl border border-parchment/10 bg-ink-light p-8">
+        <h2 class="font-display text-2xl font-semibold text-teal">Reach Us</h2>
+        <p class="mt-4 text-parchment/75">{college.address}</p>
+        <a href={`mailto:${college.email}`} class="mt-2 inline-block text-teal hover:text-gold">{college.email}</a>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-parchment/10">
+        <iframe
+          title="Campus location map"
+          class="h-72 w-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

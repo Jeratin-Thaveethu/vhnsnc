@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButton from "../components/CTAButton.astro";
+import { college } from "../data/college";
+import { achievements } from "../data/college";
+
+const timeline = [
+  { year: "1962", text: "College founded to bring higher education to the Virudhunagar region." },
+  { year: "1985", text: "Postgraduate programs introduced across core Arts & Science departments." },
+  { year: "2005", text: "Self-financed streams launched to widen access to professional programs." },
+  { year: "2024", text: "NAAC-accredited, 25 departments, thousands of alumni worldwide." },
+];
+---
+
+<BaseLayout title="About" description="History, vision and mission of VHNSNC.">
+  <section class="px-6 pb-16 pt-32 lg:px-10">
+    <div class="mx-auto max-w-4xl text-center">
+      <p class="reveal-fade text-sm font-semibold uppercase tracking-[0.3em] text-teal">About Us</p>
+      <h1 class="reveal-up mt-4 font-display text-4xl font-bold sm:text-5xl">
+        A Legacy of <span class="text-gradient-gold">Excellence</span>
+      </h1>
+      <p class="reveal-up mx-auto mt-6 max-w-2xl text-parchment/75">
+        {college.fullName} has stood for academic rigor, character-building and community since its founding —
+        this page is demo copy standing in for the college's real history and leadership content.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid gap-8 px-6 py-16 lg:grid-cols-2 lg:px-10">
+    <div class="reveal-up rounded-2xl border border-parchment/10 bg-ink-light p-8">
+      <h2 class="font-display text-2xl font-semibold text-gold">Our Vision</h2>
+      <p class="mt-4 text-parchment/75">
+        To be a center of academic excellence that nurtures ethical, capable leaders equipped for a changing world.
+      </p>
+    </div>
+    <div class="reveal-up rounded-2xl border border-parchment/10 bg-ink-light p-8">
+      <h2 class="font-display text-2xl font-semibold text-teal">Our Mission</h2>
+      <p class="mt-4 text-parchment/75">
+        To deliver quality education across disciplines, foster research, and build industry-ready graduates through
+        strong values and modern pedagogy.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="reveal-up mb-12 text-center font-display text-3xl font-bold">Our Journey</h2>
+      <div class="relative border-l border-parchment/15 pl-8">
+        {timeline.map((item) => (
+          <div class="reveal-up mb-10 last:mb-0">
+            <span class="absolute -left-[9px] flex h-4 w-4 items-center justify-center rounded-full bg-gold"></span>
+            <p class="font-display text-xl font-bold text-gold">{item.year}</p>
+            <p class="mt-1 text-parchment/75">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 text-center lg:px-10">
+    <CTAButton href="/academics" variant="outline">Explore Our Academics</CTAButton>
+  </section>
+</BaseLayout>
+
+  <section class="bg-ink-light/60 px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Key Achievements</h2>
+        <p class="mt-3 text-parchment/65">Milestones and recognitions in our journey of excellence.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {achievements.map((a) => (
+          <div class="reveal-up rounded-2xl border border-parchment/15 bg-ink-light/60 p-8 hover:border-gold/30 hover:shadow-lg transition-all duration-300">
+            <p class="font-display text-3xl font-bold text-gold">{a.year}</p>
+            <h3 class="mt-2 font-display text-xl font-bold text-parchment">{a.title}</h3>
+            <p class="mt-2 text-parchment/70">{a.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 text-center lg:px-10">
+    <div class="reveal-up mx-auto max-w-3xl rounded-3xl border border-gold/30 bg-gradient-to-br from-ink-light to-ink p-12">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">Join Our Community</h2>
+      <p class="mt-4 text-parchment/70">Be part of a college committed to excellence and student success.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <CTAButton href="/academics">Explore Academics</CTAButton>
+        <CTAButton href="/admissions" variant="outline">Apply Now</CTAButton>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero3D from "../components/Hero3D.astro";
+import StatCounter from "../components/StatCounter.astro";
+import DepartmentCard from "../components/DepartmentCard.astro";
+import EventCard from "../components/EventCard.astro";
+import CTAButton from "../components/CTAButton.astro";
+import FacilityCard from "../components/FacilityCard.astro";
+import NewsCard from "../components/NewsCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import { college, stats, departmentGroups, events, facilities, news, testimonials } from "../data/college";
+
+const featuredGroups = departmentGroups.slice(0, 3);
+const featuredFacilities = facilities.slice(0, 4);
+const latestNews = news.slice(0, 3);
+---
+
+<BaseLayout title="Home">
+  <section class="relative flex min-h-screen items-center px-6 pt-24 lg:px-10">
+    <Hero3D />
+    <div class="relative z-10 mx-auto max-w-4xl text-center">
+          <!-- Decorative background elements -->
+          <div class="absolute inset-0 -z-10 overflow-hidden">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-gold/15 to-teal/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-tl from-teal/15 to-gold/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-ink/20 to-transparent"></div>
+            </div>
+          </div>
+      <p class="reveal-fade mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-teal">
+        {college.fullName}
+      </p>
+      <h1 class="reveal-up font-display text-4xl font-bold leading-tight sm:text-6xl">
+        <span class="text-gradient-gold">{college.tagline}</span>
+      </h1>
+      <p class="reveal-up mx-auto mt-6 max-w-2xl text-base text-parchment/75 sm:text-lg">
+        A reimagined digital home for VHNSNC — built to match the excellence of what happens on campus.
+      </p>
+      <div class="reveal-up mt-10 flex flex-wrap items-center justify-center gap-4">
+        <CTAButton href="/admissions">Apply Now</CTAButton>
+        <CTAButton href="/academics" variant="outline">Explore Programs</CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-parchment/10 bg-ink-light/60 px-6 py-16 lg:px-10">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-4">
+      {stats.map((s) => <StatCounter value={s.value} suffix={s.suffix} label={s.label} />)}
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Featured Departments</h2>
+        <p class="mt-3 text-parchment/65">25 departments across Arts, Science, Commerce and Technology.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {featuredGroups.map((g) => <DepartmentCard group={g.group} departments={g.departments.slice(0, 5)} />)}
+      </div>
+      <div class="reveal-up mt-10 text-center">
+        <CTAButton href="/academics" variant="outline">View All Departments</CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink-light/60 px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-5xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">News & Events</h2>
+        <p class="mt-3 text-parchment/65">What's happening on campus right now.</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {events.map((e) => <EventCard title={e.title} dept={e.dept} date={e.date} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink-light/60 px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Campus Facilities</h2>
+        <p class="mt-3 text-parchment/65">State-of-the-art infrastructure and amenities for holistic development.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {featuredFacilities.map((f) => (
+          <div class="reveal-up">
+            <FacilityCard name={f.name} icon={f.icon} description={f.description} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Latest News & Announcements</h2>
+        <p class="mt-3 text-parchment/65">Stay updated with the latest happenings at VHNSNC.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {latestNews.map((n) => (
+          <div class="reveal-up">
+            <NewsCard title={n.title} date={n.date} category={n.category} snippet={n.snippet} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink-light/60 px-6 py-24 lg:px-10">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-up mb-12 text-center">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Student Testimonials</h2>
+        <p class="mt-3 text-parchment/65">Hear from our alumni and current students.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {testimonials.map((t) => (
+          <div class="reveal-up">
+            <TestimonialCard name={t.name} role={t.role} text={t.text} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-24 text-center lg:px-10">
+    <div class="reveal-up mx-auto max-w-3xl rounded-3xl border border-gold/30 bg-gradient-to-br from-ink-light to-ink p-12">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">Ready to begin your journey?</h2>
+      <p class="mt-4 text-parchment/70">Admissions for the new academic year are now open.</p>
+      <div class="mt-8">
+        <CTAButton href="/admissions">Start Your Application</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

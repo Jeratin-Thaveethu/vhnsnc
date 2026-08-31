@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+  icon?: string;
+  description?: string;
+  className?: string;
+  hoverEffect?: "lift" | "glow" | "scale" | "slide";
+}
+
+const {
+  title,
+  icon,
+  description,
+  className = "",
+  hoverEffect = "lift",
+} = Astro.props;
+---
+
+<div class={`animated-card card-${hoverEffect} ${className}`}>
+  {icon && <div class="text-4xl mb-3">{icon}</div>}
+  <h3 class="text-xl font-bold text-parchment">{title}</h3>
+  {description && <p class="mt-2 text-parchment/70 text-sm">{description}</p>}
+  <slot />
+</div>
+
+<style>
+  .animated-card {
+    @apply rounded-2xl border border-parchment/15 bg-ink-light/40 p-6 transition-all duration-500;
+  }
+
+  /* Lift effect - card rises on hover */
+  .card-lift:hover {
+    @apply -translate-y-2 shadow-[0_20px_40px_rgba(22,35,61,0.15)];
+  }
+
+  /* Glow effect - border and shadow glow */
+  .card-glow:hover {
+    @apply border-gold/50 shadow-[0_0_30px_rgba(200,137,42,0.2)];
+  }
+
+  /* Scale effect - slight zoom */
+  .card-scale:hover {
+    @apply scale-105;
+  }
+
+  /* Slide effect - slides in direction */
+  .card-slide:hover {
+    @apply translate-x-1;
+  }
+
+  /* Add focus state for accessibility */
+  .animated-card:focus-within {
+    @apply ring-2 ring-teal/50;
+  }
+</style>

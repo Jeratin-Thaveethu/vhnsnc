@@ -1,0 +1,58 @@
+---
+import { college, navLinks } from "../data/college";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-parchment/10 bg-ink-light">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-4 lg:px-10">
+    <div>
+      <span class="font-display text-xl font-semibold text-gold">{college.shortName}</span>
+      <p class="mt-3 max-w-xs text-sm text-parchment/70">{college.fullName}</p>
+      <p class="mt-4 text-sm text-parchment/60">{college.address}</p>
+      <a href={`mailto:${college.email}`} class="mt-1 inline-block text-sm text-teal hover:text-gold">
+        {college.email}
+      </a>
+    </div>
+
+    <div>
+      <h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-parchment/50">Explore</h3>
+      <ul class="space-y-2">
+        {navLinks.map((link) => (
+          <li><a href={link.href} class="text-sm text-parchment/80 hover:text-gold">{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-parchment/50">Quick Links</h3>
+      <ul class="space-y-2 text-sm text-parchment/80">
+        <li><a href="/admissions" class="hover:text-gold">Online Admission</a></li>
+        <li><a href="#" class="hover:text-gold">Student Corner</a></li>
+        <li><a href="#" class="hover:text-gold">Alumni Portal</a></li>
+        <li><a href="#" class="hover:text-gold">IQAC</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="mb-4 text-sm font-semibold uppercase tracking-widest text-parchment/50">Follow</h3>
+      <div class="flex gap-3">
+        {Object.entries(college.social).map(([name, href]) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex h-9 w-9 items-center justify-center rounded-full border border-parchment/15 text-xs uppercase text-parchment/70 transition-colors hover:border-gold hover:text-gold"
+            aria-label={name}
+          >
+            {name[0]}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-parchment/10 py-6 text-center text-xs text-parchment/40">
+    © {year} {college.shortName} — Demo redesign concept, not an official website.
+  </div>
+</footer>

@@ -1,0 +1,58 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  dept: string;
+}
+const { name, role, dept } = Astro.props as Props;
+const initials = name
+  .split(" ")
+  .map((w) => w[0])
+  .slice(-2)
+  .join("");
+---
+
+<div class="reveal-up faculty-card relative overflow-hidden rounded-2xl border border-parchment/10 bg-ink-light p-6 text-center transition-transform duration-300 hover:-translate-y-2">
+  <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-teal to-gold font-display text-xl font-bold text-ink avatar transition-transform duration-300">
+    {initials}
+  </div>
+  <h3 class="mt-4 font-display text-lg font-semibold">{name}</h3>
+  <p class="text-sm text-gold/90">{role}</p>
+  <p class="mt-1 text-xs uppercase tracking-widest text-parchment/50">{dept}</p>
+</div>
+
+<style>
+  .faculty-card {
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid rgba(22, 35, 61, 0.1);
+    background-color: var(--color-ink-light);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease-out;
+  }
+
+  .faculty-card:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  .avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, var(--color-teal), var(--color-gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    transition: transform 0.3s ease-out;
+    margin: 0 auto;
+  }
+
+  .faculty-card:hover .avatar {
+    transform: scale(1.1);
+  }
+</style>
