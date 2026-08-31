@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Examination Schedule - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">
+        Examination Schedule
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Academic Year 2025-2026
+      </p>
+    </section>
+
+    <section class="px-6 max-w-4xl mx-auto space-y-8">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment mb-6">Upcoming Examinations</h2>
+        <div class="space-y-4">
+          <div class="rounded-lg border border-parchment/20 p-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-parchment">Continuous Internal Assessment (CIA)</h3>
+                <p class="text-parchment/70 text-sm mt-1">Ongoing throughout the semester</p>
+              </div>
+              <span class="text-gold text-sm font-semibold">Weekly</span>
+            </div>
+          </div>
+          <div class="rounded-lg border border-parchment/20 p-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-parchment">Summative Examination (April)</h3>
+                <p class="text-parchment/70 text-sm mt-1">End-semester examination</p>
+              </div>
+              <span class="text-gold text-sm font-semibold">April 2026</span>
+            </div>
+          </div>
+          <div class="rounded-lg border border-parchment/20 p-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-semibold text-parchment">Supplementary Exam (August)</h3>
+                <p class="text-parchment/70 text-sm mt-1">For students requiring improvement</p>
+              </div>
+              <span class="text-gold text-sm font-semibold">August 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 class="font-semibold text-parchment mb-3">Important Guidelines</h3>
+        <ul class="space-y-2 text-parchment/70 text-sm">
+          <li>• Admit cards will be issued 1 week before examinations</li>
+          <li>• Students must report 15 minutes before exam time</li>
+          <li>• No electronic devices allowed in examination hall</li>
+          <li>• Results published within 2-3 weeks after examinations</li>
+          <li>• Question papers are destroyed after value-added checking</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

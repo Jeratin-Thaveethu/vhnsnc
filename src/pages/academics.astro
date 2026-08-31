@@ -15,6 +15,24 @@ import { departmentGroups } from "../data/college";
     </p>
   </section>
 
+  <!-- Quick Navigation Links -->
+  <section class="px-6 pb-12 lg:px-10">
+    <div class="mx-auto flex flex-wrap justify-center gap-4 max-w-4xl">
+      <a href="/academics/departments" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        Departments
+      </a>
+      <a href="/academics/programs" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        Programs
+      </a>
+      <a href="/academics/syllabus" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        Syllabus
+      </a>
+      <a href="/academics/calendar" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        Academic Calendar
+      </a>
+    </div>
+  </section>
+
   <section class="px-6 pb-24 lg:px-10">
     <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
       {departmentGroups.map((g) => <DepartmentCard group={g.group} departments={g.departments} />)}

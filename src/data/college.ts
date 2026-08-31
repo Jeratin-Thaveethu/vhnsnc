@@ -7,7 +7,9 @@ export const college = {
   fullName: "Virudhunagar Hindu Nadars' Senthikumara Nadar College",
   tagline: "Shaping Minds Since 1962",
   address: "3/151-1, College Road, Virudhunagar - 626001, Tamil Nadu, India",
+  phone: "+91-461-2242024",
   email: "support@vhnsnc.edu.in",
+  website: "https://www.vhnsnc.edu.in/",
   social: {
     instagram: "https://www.instagram.com/vhnsncollege/",
     facebook: "https://www.facebook.com/vhnsncofficial",
@@ -17,7 +19,7 @@ export const college = {
 };
 
 export const stats = [
-  { label: "Years of Legacy", value: 60, suffix: "+" },
+  { label: "Years of Legacy", value: 62, suffix: "+" },
   { label: "Departments", value: 25, suffix: "" },
   { label: "Students", value: 6000, suffix: "+" },
   { label: "Faculty Members", value: 220, suffix: "+" },
@@ -48,20 +50,108 @@ export const departmentGroups = [
 
 export const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Administration", href: "/administration", submenu: [
+    { label: "Principal", href: "/administration/principal" },
+    { label: "Management", href: "/administration/management" },
+    { label: "Staff Directory", href: "/administration/staff" },
+  ]},
+  { label: "Academics", href: "/academics", submenu: [
+    { label: "Departments", href: "/academics/departments" },
+    { label: "Programs", href: "/academics/programs" },
+    { label: "Syllabus", href: "/academics/syllabus" },
+    { label: "Academic Calendar", href: "/academics/calendar" },
+  ]},
+  { label: "Students", href: "/students", submenu: [
+    { label: "Student Life", href: "/students/life" },
+    { label: "Societies & Clubs", href: "/students/clubs" },
+    { label: "Achievements", href: "/students/achievements" },
+    { label: "Placements", href: "/students/placements" },
+  ]},
+  { label: "Curriculum", href: "/curriculum", submenu: [
+    { label: "UG Curriculum", href: "/curriculum/ug" },
+    { label: "PG Curriculum", href: "/curriculum/pg" },
+    { label: "Skill Development", href: "/curriculum/skills" },
+  ]},
+  { label: "IQAC", href: "/iqac" },
+  { label: "Digitech", href: "/digitech" },
+  { label: "Research", href: "/research" },
+  { label: "Examination", href: "/examination", submenu: [
+    { label: "Exam Schedule", href: "/examination/schedule" },
+    { label: "Results", href: "/examination/results" },
+    { label: "Time Table", href: "/examination/timetable" },
+  ]},
   { label: "About", href: "/about" },
-  { label: "Academics", href: "/academics" },
-  { label: "Admissions", href: "/admissions" },
-  { label: "Faculty", href: "/faculty" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
-  { label: "Facilities", href: "/facilities" },
+];
+
+// Quick links/toolbar items
+export const quickLinks = [
+  { label: "NIRF", href: "/nirf", icon: "⭐" },
+  { label: "Online Payment", href: "https://payments.billdesk.com/bdcollect/pay?p1=111&p2=8", icon: "💳" },
+  { label: "Online Application", href: "/onlineadmission", icon: "📝" },
 ];
 
 // Sample events, faculty and testimonials below are placeholder demo data only.
 export const events = [
-  { title: "RubyHack'26 Inter-College Hackathon", dept: "Computer Science", date: "16 Sep" },
-  { title: "Effective Documentation with LaTeX", dept: "Mathematics Association", date: "31 Aug" },
-  { title: "Guest Lecture: Healthy Adolescents", dept: "Information Technology", date: "31 Aug" },
+  { 
+    title: "RubyHack'26 Inter-College Hackathon", 
+    dept: "Computer Science Department", 
+    date: "16 Sep 2026",
+    description: "The Department of Computer Science organizes the RubyHack'26 Inter-College Hackathon",
+    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787826888.jpeg"
+  },
+  { 
+    title: "Effective Documentation using LATEX", 
+    dept: "Mathematics Association", 
+    date: "31 Aug 2026",
+    description: "UG Mathematics Association organizes hands-on training on Preparing Effective Documentation using LATEX",
+    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787905122.jpeg"
+  },
+  { 
+    title: "Guest Lecture: Healthy Adolescents", 
+    dept: "Information Technology Department", 
+    date: "31 Aug 2026",
+    description: "The Department of Information Technology organizes a Guest Lecture on Healthy Adolescents",
+    image: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787907244.jpg"
+  },
+  { 
+    title: "Mass Tree Plantation / Library Day", 
+    dept: "College", 
+    date: "12 Aug 2026"
+  },
+  { 
+    title: "Commencement of I Internal Test", 
+    dept: "Academic", 
+    date: "04 Aug 2026"
+  },
+];
+
+export const officialGalleryImages = [
+  {
+    src: "https://www.vhnsnc.edu.in/img/core-img/head.webp",
+    alt: "VHNSNC official college header",
+    caption: "Virudhunagar Hindu Nadars' Senthikumara Nadar College",
+    wide: true,
+  },
+  {
+    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787826888.jpeg",
+    alt: "RubyHack 2026 inter-college hackathon invitation",
+    caption: "RubyHack'26 - Department of Computer Science",
+    wide: false,
+  },
+  {
+    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787905122.jpeg",
+    alt: "Mathematics Association LaTeX documentation workshop invitation",
+    caption: "Effective Documentation using LaTeX",
+    wide: false,
+  },
+  {
+    src: "https://www.vhnsnc.edu.in/img/Invitation/2025-2026/1787907244.jpg",
+    alt: "Information Technology guest lecture on healthy adolescents invitation",
+    caption: "Guest Lecture: Healthy Adolescents",
+    wide: false,
+  },
 ];
 
 export const faculty = [
@@ -98,6 +188,8 @@ export const facilities = [
 ];
 
 export const news = [
+  { title: "Summative Examinations Results - April 2026", date: "31 Aug 2026", category: "Examination", snippet: "Results for Summative Examinations - April 2026 are now available." },
+  { title: "Private Candidate Fees Payment Deadline", date: "31 Aug 2026", category: "Admissions", snippet: "Private candidate students can pay their arrear fees in the college office till September 18, 2026." },
   { title: "NIRF Ranking 2026", date: "15 Aug 2026", category: "Achievement", snippet: "VHNSNC ranks among top colleges in India's National Institutional Ranking Framework." },
   { title: "Admissions Open for 2026-27", date: "10 Aug 2026", category: "Admissions", snippet: "Apply now for UG and PG programs. Merit-based scholarships available." },
   { title: "Campus Expansion Project", date: "20 Jul 2026", category: "Infrastructure", snippet: "New academic block and innovation center coming soon." },

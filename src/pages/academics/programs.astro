@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Programs & Courses - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">
+        Academic Programs
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Undergraduate and Postgraduate Offerings
+      </p>
+    </section>
+
+    <section class="px-6 max-w-4xl mx-auto space-y-8">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment mb-6">UG Programs</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="rounded-lg border border-parchment/20 p-4">
+            <h3 class="font-semibold text-parchment">B.Sc Programs</h3>
+            <p class="text-parchment/70 text-sm mt-2">Physics, Chemistry, Botany, Zoology, Microbiology</p>
+          </div>
+          <div class="rounded-lg border border-parchment/20 p-4">
+            <h3 class="font-semibold text-parchment">B.A Programs</h3>
+            <p class="text-parchment/70 text-sm mt-2">History, English, Political Science, Economics</p>
+          </div>
+          <div className="rounded-lg border border-parchment/20 p-4">
+            <h3 className="font-semibold text-parchment">B.Com Programs</h3>
+            <p className="text-parchment/70 text-sm mt-2">Commerce, Business Administration</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 className="font-display text-2xl font-semibold text-parchment mb-6">PG Programs</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg border border-parchment/20 p-4">
+            <h3 className="font-semibold text-parchment">M.Sc Programs</h3>
+            <p className="text-parchment/70 text-sm mt-2">Advanced Science Research and Studies</p>
+          </div>
+          <div className="rounded-lg border border-parchment/20 p-4">
+            <h3 className="font-semibold text-parchment">M.A Programs</h3>
+            <p className="text-parchment/70 text-sm mt-2">Advanced Arts and Social Science Studies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

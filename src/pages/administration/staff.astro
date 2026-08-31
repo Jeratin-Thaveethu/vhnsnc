@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Staff Directory - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="space-y-6 px-6 text-center">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">Staff Directory</h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Connect with the administrative offices that support the college community.
+      </p>
+    </section>
+
+    <section class="mx-auto max-w-4xl space-y-6 px-6">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment">Administrative Offices</h2>
+        <p class="mt-3 text-parchment/75">For assistance, contact the relevant office during college working hours.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2">
+        {[
+          ["Principal's Office", "Institutional administration and academic leadership"],
+          ["Admissions Office", "Applications, enrolment, and student records"],
+          ["Examination Section", "Examination schedules, hall tickets, and results"],
+          ["Accounts Office", "Fees, scholarships, and financial assistance"],
+          ["Student Welfare", "Student support, clubs, and campus services"],
+          ["Library", "Library membership, borrowing, and e-resources"],
+        ].map(([office, description]) => (
+          <article class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+            <h3 class="font-semibold text-parchment">{office}</h3>
+            <p class="mt-2 text-sm text-parchment/70">{description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Departments - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">
+        Our Departments
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Explore our diverse range of academic departments
+      </p>
+    </section>
+
+    <section class="px-6 max-w-6xl mx-auto">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment mb-2">Science</h3>
+          <p class="text-parchment/70 text-sm mb-4">Departments of Physics, Chemistry, Botany, Zoology, and Microbiology</p>
+          <a href="#" class="text-gold text-sm font-semibold hover:underline">Learn more →</a>
+        </div>
+        <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment mb-2">Arts & Social Sciences</h3>
+          <p class="text-parchment/70 text-sm mb-4">Departments of History, Political Science, Economics, and English</p>
+          <a href="#" class="text-gold text-sm font-semibold hover:underline">Learn more →</a>
+        </div>
+        <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment mb-2">Commerce & Management</h3>
+          <p class="text-parchment/70 text-sm mb-4">Departments of Commerce, Business Administration, and Accounting</p>
+          <a href="#" class="text-gold text-sm font-semibold hover:underline">Learn more →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

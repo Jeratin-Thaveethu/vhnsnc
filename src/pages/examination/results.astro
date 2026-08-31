@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Examination Results - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl lg:text-6xl">
+        Examination Results
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Access your academic performance results
+      </p>
+    </section>
+
+    <section class="px-6 max-w-4xl mx-auto space-y-8">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment mb-4">Latest Results</h2>
+        <div class="space-y-3">
+          <div class="rounded-lg border border-parchment/20 p-4 hover:border-gold/30 transition-all">
+            <h3 class="font-semibold text-parchment">Summative Examinations Results - April 2026</h3>
+            <p class="text-sm text-parchment/60 mt-1">Published on August 31, 2026</p>
+            <p class="text-parchment/70 mt-2">Results for Summative Examinations conducted in April 2026 are now available for view.</p>
+          </div>
+          <div class="rounded-lg border border-parchment/20 p-4 hover:border-gold/30 transition-all">
+            <h3 class="font-semibold text-parchment">Previous Semester Results</h3>
+            <p class="text-sm text-parchment/60 mt-1">Archive of past examination results</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 class="font-semibold text-parchment mb-3">How to Access Results</h3>
+        <p class="text-parchment/70 mb-4">
+          Results are published on the college portal and can be accessed using your student ID and password. Please contact the Examination Cell if you face any issues.
+        </p>
+        <a href="https://www.vhnsnc.edu.in/results.php" target="_blank" rel="noopener noreferrer" class="inline-block rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+          View Results Portal →
+        </a>
+      </div>
+
+      <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 class="font-semibold text-parchment mb-3">Important Information</h3>
+        <ul class="space-y-2 text-parchment/70 text-sm">
+          <li>• Results are published after completion of evaluation and verification</li>
+          <li>• In case of any discrepancies, contact the respective department</li>
+          <li>• Grade cards can be collected from the college office</li>
+          <li>• For official transcripts, apply through the Registrar's office</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

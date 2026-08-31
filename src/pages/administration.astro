@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Administration - VHNSNC">
+  <main class="space-y-16 py-20">
+    <!-- Hero Section -->
+    <section class="relative space-y-6 text-center">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl lg:text-6xl">
+        College Administration
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Meet the leadership team that steers VHNSNC towards excellence
+      </p>
+    </section>
+
+    <!-- Principal Section -->
+    <section class="space-y-8">
+      <h2 class="text-center font-display text-3xl font-bold text-gold">Principal</h2>
+      <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-8 text-center">
+        <div class="mb-4 text-6xl">👨‍💼</div>
+        <h3 class="font-display text-2xl font-semibold text-parchment">Dr. A. Meenakshi</h3>
+        <p class="text-lg text-parchment/70">Principal & Head, Department of Physics</p>
+        <p class="mt-4 text-parchment/60">
+          Leading VHNSNC towards academic excellence and innovation since 2020.
+        </p>
+      </div>
+    </section>
+
+    <!-- Management Section -->
+    <section class="space-y-8">
+      <h2 class="text-center font-display text-3xl font-bold text-gold">Management Committee</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment">Vice Principal (Administration)</h3>
+          <p class="mt-2 text-parchment/70">Overseeing administrative operations and faculty coordination</p>
+        </div>
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment">Academic Dean</h3>
+          <p class="mt-2 text-parchment/70">Directing academic planning and curriculum development</p>
+        </div>
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-lg font-semibold text-parchment">Finance Officer</h3>
+          <p class="mt-2 text-parchment/70">Managing institutional finances and budgeting</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="space-y-6">
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/administration/principal" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors">
+          About Principal
+        </a>
+        <a href="/administration/management" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors">
+          Management
+        </a>
+        <a href="/administration/staff" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors">
+          Staff Directory
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

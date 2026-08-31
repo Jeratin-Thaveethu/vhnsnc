@@ -1,34 +1,52 @@
 ---
-import { college, navLinks } from "../data/college";
+import { college, navLinks, quickLinks } from "../data/college";
 
 const currentPath = Astro.url.pathname;
+const toSitePath = (href: string) =>
+  href.startsWith("/") ? `${import.meta.env.BASE_URL}${href}` : href;
 ---
 
 <header class="fixed top-0 z-50 w-full transition-colors duration-300" id="site-header">
   <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-    <a href="/" class="flex items-center gap-3">
+    <a href={import.meta.env.BASE_URL} class="flex items-center gap-3">
       <span class="flex h-10 w-10 items-center justify-center rounded-full border border-gold/60 font-display text-lg font-bold text-gold">
         V
       </span>
       <span class="hidden font-display text-lg font-semibold tracking-wide sm:inline">{college.shortName}</span>
     </a>
 
-    <nav class="hidden items-center gap-8 lg:flex">
+    <nav class="hidden items-center gap-6 lg:flex">
       {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "relative text-sm font-medium tracking-wide text-parchment/80 transition-colors hover:text-gold",
-            { "text-gold": currentPath === link.href },
-          ]}
-        >
-          {link.label}
-        </a>
+        <div class="group relative">
+          <a
+            href={toSitePath(link.href)}
+            class:list={[
+              "flex items-center gap-1 text-sm font-medium tracking-wide text-parchment/80 transition-colors hover:text-gold",
+              { "text-gold": currentPath === link.href },
+            ]}
+          >
+            {link.label}
+            {link.submenu && <span class="text-xs">▼</span>}
+          </a>
+          
+          {link.submenu && (
+            <div class="absolute left-0 mt-0 hidden min-w-48 flex-col gap-1 rounded-lg bg-ink-light/95 py-2 shadow-lg backdrop-blur group-hover:flex">
+              {link.submenu.map((sublink) => (
+                <a
+                  href={toSitePath(sublink.href)}
+                  class="px-4 py-2 text-sm text-parchment/80 transition-colors hover:bg-parchment/5 hover:text-gold"
+                >
+                  {sublink.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       ))}
     </nav>
 
     <a
-      href="/admissions"
+      href={toSitePath("/admissions")}
       class="hidden rounded-full bg-gold px-5 py-2 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/30 lg:inline-block"
     >
       Apply Now
@@ -43,11 +61,29 @@ const currentPath = Astro.url.pathname;
 
   <nav id="mobile-menu" class="hidden flex-col gap-1 bg-ink-light/95 px-6 pb-6 backdrop-blur lg:hidden">
     {navLinks.map((link) => (
-      <a href={link.href} class="rounded-lg px-3 py-3 text-parchment/90 hover:bg-parchment/5 hover:text-gold">
-        {link.label}
-      </a>
+      <div>
+        <div class="flex items-center justify-between">
+          <a href={toSitePath(link.href)} class="flex-1 rounded-lg px-3 py-3 text-parchment/90 hover:bg-parchment/5 hover:text-gold">
+            {link.label}
+          </a>
+          {link.submenu && (
+            <button class="submenu-toggle px-3 py-3 text-parchment/90" data-target={`submenu-${link.href}`}>
+              ▶
+            </button>
+          )}
+        </div>
+        {link.submenu && (
+          <div id={`submenu-${link.href}`} class="hidden flex-col gap-1 bg-parchment/5 rounded-lg ml-3">
+            {link.submenu.map((sublink) => (
+              <a href={toSitePath(sublink.href)} class="rounded-lg px-4 py-2 text-sm text-parchment/70 hover:bg-parchment/10 hover:text-gold">
+                {sublink.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
     ))}
-    <a href="/admissions" class="mt-2 rounded-full bg-gold px-4 py-2 text-center text-sm font-semibold text-ink">
+    <a href={toSitePath("/admissions")} class="mt-2 rounded-full bg-gold px-4 py-2 text-center text-sm font-semibold text-ink">
       Apply Now
     </a>
   </nav>
@@ -57,6 +93,7 @@ const currentPath = Astro.url.pathname;
   const header = document.getElementById("site-header");
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
+  const submenuToggles = document.querySelectorAll(".submenu-toggle");
 
   const onScroll = () => {
     if (!header) return;
@@ -73,5 +110,16 @@ const currentPath = Astro.url.pathname;
     const isOpen = menu?.classList.toggle("flex");
     menu?.classList.toggle("hidden");
     toggle.setAttribute("aria-expanded", String(!!isOpen));
+  });
+
+  submenuToggles.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.getElementById(btn.dataset.target || "");
+      if (target) {
+        target.classList.toggle("hidden");
+        btn.textContent = target.classList.contains("hidden") ? "▶" : "▼";
+      }
+    });
   });
 </script>

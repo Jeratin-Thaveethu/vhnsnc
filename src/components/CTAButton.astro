@@ -4,6 +4,7 @@ interface Props {
   variant?: "solid" | "outline";
 }
 const { href, variant = "solid" } = Astro.props as Props;
+const resolvedHref = href.startsWith("/") ? `${import.meta.env.BASE_URL}${href}` : href;
 const base =
   "magnetic-btn relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold transition-transform will-change-transform";
 const styles =
@@ -12,7 +13,7 @@ const styles =
     : "border border-gold/60 text-gold hover:bg-gold/10";
 ---
 
-<a href={href} class:list={[base, styles]}>
+<a href={resolvedHref} class:list={[base, styles]}>
   <slot />
 </a>
 

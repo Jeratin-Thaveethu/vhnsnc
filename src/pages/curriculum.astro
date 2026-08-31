@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Curriculum - VHNSNC">
+  <main class="space-y-16 py-20">
+    <!-- Hero Section -->
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl lg:text-6xl">
+        Curriculum Development
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Structured learning paths designed to meet academic and professional standards
+      </p>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="flex flex-wrap gap-4 justify-center px-6">
+      <a href="/curriculum/ug" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        UG Curriculum
+      </a>
+      <a href="/curriculum/pg" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        PG Curriculum
+      </a>
+      <a href="/curriculum/skills" class="rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold">
+        Skill Development
+      </a>
+    </section>
+
+    <!-- Curriculum Overview -->
+    <section class="px-6 space-y-8">
+      <h2 class="text-center font-display text-3xl font-bold text-gold">Our Approach</h2>
+      <div class="grid gap-6 max-w-4xl mx-auto md:grid-cols-2">
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-xl font-semibold text-parchment mb-3">Theory & Practice</h3>
+          <p class="text-parchment/70">Balanced curriculum combining theoretical knowledge with practical application through labs, projects, and internships.</p>
+        </div>
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-xl font-semibold text-parchment mb-3">Industry Alignment</h3>
+          <p class="text-parchment/70">Regular curriculum updates to align with industry requirements and market demands.</p>
+        </div>
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-xl font-semibold text-parchment mb-3">Skill Enhancement</h3>
+          <p class="text-parchment/70">Value-added courses in emerging technologies, soft skills, and professional certifications.</p>
+        </div>
+        <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+          <h3 class="font-display text-xl font-semibold text-parchment mb-3">Global Standards</h3>
+          <p class="text-parchment/70">Curriculum designed to meet national and international academic standards.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

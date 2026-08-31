@@ -71,7 +71,7 @@ const latestNews = news.slice(0, 3);
         <p class="mt-3 text-parchment/65">What's happening on campus right now.</p>
       </div>
       <div class="grid gap-4 md:grid-cols-3">
-        {events.map((e) => <EventCard title={e.title} dept={e.dept} date={e.date} />)}
+        {events.map((e) => <EventCard title={e.title} dept={e.dept} date={e.date} image={e.image} />)}
       </div>
     </div>
   </section>

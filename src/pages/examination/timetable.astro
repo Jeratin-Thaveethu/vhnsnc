@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Examination Timetable - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">
+        Examination Timetable
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        Semester I & II 2025-2026
+      </p>
+    </section>
+
+    <section class="px-6 max-w-4xl mx-auto space-y-8">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment mb-6">Semester I Exams - December 2025</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-parchment/20">
+                <th class="text-left py-2 px-3 font-semibold text-parchment">Date</th>
+                <th class="text-left py-2 px-3 font-semibold text-parchment">I Year</th>
+                <th class="text-left py-2 px-3 font-semibold text-parchment">II Year</th>
+                <th class="text-left py-2 px-3 font-semibold text-parchment">III Year</th>
+              </tr>
+            </thead>
+            <tbody class="text-parchment/70">
+              <tr class="border-b border-parchment/10">
+                <td class="py-2 px-3">Dec 1</td>
+                <td class="py-2 px-3">Language</td>
+                <td class="py-2 px-3">Core Subject I</td>
+                <td class="py-2 px-3">Core Subject I</td>
+              </tr>
+              <tr class="border-b border-parchment/10">
+                <td class="py-2 px-3">Dec 3</td>
+                <td class="py-2 px-3">Physics</td>
+                <td class="py-2 px-3">Core Subject II</td>
+                <td class="py-2 px-3">Core Subject II</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3">Dec 5</td>
+                <td class="py-2 px-3">Chemistry</td>
+                <td class="py-2 px-3">Elective</td>
+                <td class="py-2 px-3">Elective</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 className="font-semibold text-parchment mb-3">Exam Timings</h3>
+        <div className="space-y-2 text-parchment/70 text-sm">
+          <div className="flex justify-between">
+            <span>Morning Session</span>
+            <span className="font-semibold">9:30 AM - 12:30 PM</span>
+          </div>
+          <div className="flex justify-between border-t border-parchment/10 pt-2">
+            <span>Afternoon Session</span>
+            <span className="font-semibold">2:00 PM - 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 className="font-semibold text-parchment mb-3">Download Full Timetable</h3>
+        <p className="text-parchment/70 text-sm mb-4">Complete timetable for all departments and courses</p>
+        <a href="#" className="inline-block rounded-lg bg-gold/20 px-6 py-2 text-gold hover:bg-gold/30 transition-colors font-semibold text-sm">
+          Download PDF →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

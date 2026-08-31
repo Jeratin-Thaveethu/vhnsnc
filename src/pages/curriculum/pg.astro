@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Postgraduate Curriculum - VHNSNC">
+  <main class="space-y-16 py-20">
+    <section class="relative space-y-6 text-center px-6">
+      <h1 class="font-display text-4xl font-bold text-gold md:text-5xl">
+        Postgraduate Curriculum
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-parchment/70">
+        2-Year Master's Program with Research Focus
+      </p>
+    </section>
+
+    <section class="px-6 max-w-4xl mx-auto space-y-8">
+      <div class="rounded-lg border border-gold/30 bg-gradient-to-br from-gold/10 to-transparent p-8">
+        <h2 class="font-display text-2xl font-semibold text-parchment mb-6">Program Structure</h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="flex-shrink-0 rounded-full bg-gold/30 px-3 py-1 text-sm font-semibold text-gold">Year 1</span>
+            <div>
+              <h3 class="font-semibold text-parchment">Coursework & Specialization</h3>
+              <p class="text-parchment/70 text-sm">Advanced theoretical and practical courses in chosen specialization</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="flex-shrink-0 rounded-full bg-gold/30 px-3 py-1 text-sm font-semibold text-gold">Year 2</span>
+            <div>
+              <h3 class="font-semibold text-parchment">Research & Thesis</h3>
+              <p class="text-parchment/70 text-sm">Independent research project with thesis submission and defense</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-parchment/20 bg-gradient-to-br from-parchment/5 to-transparent p-6">
+        <h3 class="font-semibold text-parchment mb-3">Specializations</h3>
+        <div class="grid gap-3 text-parchment/70 text-sm">
+          <div>🔬 <span>Advanced Science & Research</span></div>
+          <div>📚 <span>Literary and Cultural Studies</span></div>
+          <div>💼 <span>Business Administration</span></div>
+          <div>📊 <span>Economics and Development</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
